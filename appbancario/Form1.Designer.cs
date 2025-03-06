@@ -30,10 +30,10 @@
         {
             this.valor = new System.Windows.Forms.Label();
             this.saldo = new System.Windows.Forms.Label();
-            this.saldonum = new System.Windows.Forms.Label();
+            this.lblsaldo = new System.Windows.Forms.Label();
             this.limite = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btdeposit = new System.Windows.Forms.Button();
+            this.btsacar = new System.Windows.Forms.Button();
             this.valornum = new System.Windows.Forms.NumericUpDown();
             this.limitenum = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.valornum)).BeginInit();
@@ -60,15 +60,14 @@
             this.saldo.TabIndex = 1;
             this.saldo.Text = "Saldo :";
             // 
-            // saldonum
+            // lblsaldo
             // 
-            this.saldonum.AutoSize = true;
-            this.saldonum.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saldonum.Location = new System.Drawing.Point(229, 238);
-            this.saldonum.Name = "saldonum";
-            this.saldonum.Size = new System.Drawing.Size(53, 25);
-            this.saldonum.TabIndex = 2;
-            this.saldonum.Text = "label3";
+            this.lblsaldo.AutoSize = true;
+            this.lblsaldo.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsaldo.Location = new System.Drawing.Point(272, 238);
+            this.lblsaldo.Name = "lblsaldo";
+            this.lblsaldo.Size = new System.Drawing.Size(0, 25);
+            this.lblsaldo.TabIndex = 2;
             // 
             // limite
             // 
@@ -80,28 +79,30 @@
             this.limite.TabIndex = 3;
             this.limite.Text = "Limite :";
             // 
-            // button1
+            // btdeposit
             // 
-            this.button1.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(139, 123);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 40);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btdeposit.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btdeposit.Location = new System.Drawing.Point(139, 123);
+            this.btdeposit.Name = "btdeposit";
+            this.btdeposit.Size = new System.Drawing.Size(106, 40);
+            this.btdeposit.TabIndex = 4;
+            this.btdeposit.Text = "Depositar";
+            this.btdeposit.UseVisualStyleBackColor = true;
+            this.btdeposit.Click += new System.EventHandler(this.btdeposit_Click);
             // 
-            // button2
+            // btsacar
             // 
-            this.button2.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(277, 123);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 40);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btsacar.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btsacar.Location = new System.Drawing.Point(277, 123);
+            this.btsacar.Name = "btsacar";
+            this.btsacar.Size = new System.Drawing.Size(106, 40);
+            this.btsacar.TabIndex = 5;
+            this.btsacar.Text = "Sacar";
+            this.btsacar.UseVisualStyleBackColor = true;
             // 
             // valornum
             // 
+            this.valornum.DecimalPlaces = 1;
             this.valornum.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valornum.Location = new System.Drawing.Point(232, 74);
             this.valornum.Name = "valornum";
@@ -110,6 +111,7 @@
             // 
             // limitenum
             // 
+            this.limitenum.DecimalPlaces = 1;
             this.limitenum.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.limitenum.Location = new System.Drawing.Point(232, 327);
             this.limitenum.Name = "limitenum";
@@ -123,10 +125,10 @@
             this.ClientSize = new System.Drawing.Size(615, 462);
             this.Controls.Add(this.limitenum);
             this.Controls.Add(this.valornum);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btsacar);
+            this.Controls.Add(this.btdeposit);
             this.Controls.Add(this.limite);
-            this.Controls.Add(this.saldonum);
+            this.Controls.Add(this.lblsaldo);
             this.Controls.Add(this.saldo);
             this.Controls.Add(this.valor);
             this.Name = "Form1";
@@ -142,10 +144,10 @@
 
         private System.Windows.Forms.Label valor;
         private System.Windows.Forms.Label saldo;
-        private System.Windows.Forms.Label saldonum;
+        private System.Windows.Forms.Label lblsaldo;
         private System.Windows.Forms.Label limite;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btdeposit;
+        private System.Windows.Forms.Button btsacar;
         private System.Windows.Forms.NumericUpDown valornum;
         private System.Windows.Forms.NumericUpDown limitenum;
     }
