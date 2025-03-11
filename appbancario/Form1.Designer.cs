@@ -119,7 +119,7 @@
             // valornum
             // 
             this.valornum.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.valornum.DecimalPlaces = 1;
+            this.valornum.DecimalPlaces = 2;
             this.valornum.Font = new System.Drawing.Font("Papyrus", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valornum.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.valornum.Location = new System.Drawing.Point(507, 72);
