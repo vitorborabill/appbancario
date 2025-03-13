@@ -119,7 +119,7 @@
             // valornum
             // 
             this.valornum.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.valornum.DecimalPlaces = 1;
+            this.valornum.DecimalPlaces = 2;
             this.valornum.Font = new System.Drawing.Font("Papyrus", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valornum.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.valornum.Location = new System.Drawing.Point(507, 72);
@@ -135,7 +135,7 @@
             // limitenum
             // 
             this.limitenum.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.limitenum.DecimalPlaces = 1;
+            this.limitenum.DecimalPlaces = 2;
             this.limitenum.Font = new System.Drawing.Font("Papyrus", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.limitenum.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.limitenum.Location = new System.Drawing.Point(539, 507);
