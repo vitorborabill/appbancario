@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace appbancario
 {
     public partial class Form1 : Form
@@ -17,45 +18,81 @@ namespace appbancario
             InitializeComponent();
         }
 
+        double saldo = 0;
+        double taxa = 0.01;
+
         void veriflim()
         {
             double limite = (double)limitenum.Value;
-            double saldo = Double.Parse(lblsaldo.Text);
             double nemlim = limite * -1;
             if (saldo < nemlim)
             {
-                MessageBox.Show("Não permitido");
+                MessageBox.Show("Não permitido: Limite excedido.");
             }
+        }
+
+        void AtualizarSaldo(double novoSaldo)
+        {
+            saldo = novoSaldo;
+            lblsaldo.Text = saldo.ToString("c"); 
+            veriflim(); 
         }
 
 
         private void btdeposit_Click(object sender, EventArgs e)
         {
-            double num1, num2 = 0, result = 0;
-            num1 = (double)valornum.Value;
-            if (lblsaldo.Text != "")
-                num2 = Double.Parse(lblsaldo.Text);
-            result = num2 + num1;
-            lblsaldo.Text = result.ToString();
+            double valorDeposito = (double)valornum.Value;
+            if (valorDeposito > 0)
+            {
+                AtualizarSaldo(saldo + valorDeposito);
+            }
+            else
+            {
+                MessageBox.Show("Valor de depósito inválido.");
+            }
         }
 
         private void btsacar_Click(object sender, EventArgs e)
         {
-            double n1, n2 = 0, res = 0, limite = 0;
-            limite = (double)limitenum.Value * -1;
-            n1 = (double)valornum.Value;
-            if(lblsaldo.Text != "")
-                n2 = Double.Parse(lblsaldo.Text);
-            res = n2 - n1;
-            if(res < limite) 
-                MessageBox.Show("Não permitido");
+            double valorSaque = (double)valornum.Value;
+            if (valorSaque > 0 && valorSaque <= saldo + (double)limitenum.Value)
+            {
+                AtualizarSaldo(saldo - valorSaque);
+            }
             else
-                lblsaldo.Text = res.ToString();
+            {
+                MessageBox.Show("Valor de saque inválido ou limite excedido.");
+            }
         }
 
         private void lblsaldo_TextChanged(object sender, EventArgs e)
         {
             veriflim();
+        }
+
+        private void tmrJuros_Tick(object sender, EventArgs e)
+        {
+            saldo += saldo * taxa;
+            lblsaldo.Text = saldo.ToString("c");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            lblTaxa.Text =
+                $"*Taxa: {taxa * 100}% a.c {(double)tmrJuros.Interval / 1000} seg";
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Deseja realmente sair?", "Resenha FC", MessageBoxButtons.YesNo);
+            if(r == DialogResult.No)
+                e.Cancel = true;
+
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("VALEU 24", "BANCO MOLESTAÇÃO");
         }
     }
 }
