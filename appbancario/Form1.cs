@@ -78,8 +78,7 @@ namespace appbancario
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lblTaxa.Text =
-                $"*Taxa: {taxa * 100}% a.c {(double)tmrJuros.Interval / 1000} seg";
+            lblTaxa.Text =$"*Taxa: {taxa * 100}% a.c {(double)tmrJuros.Interval / 1000} seg";
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -92,7 +91,7 @@ namespace appbancario
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MessageBox.Show("VALEU 24", "BANCO MOLESTAÇÃO");
+            MessageBox.Show("VALEU BOBAO", "BANCO EUCLIDES");
         }
     }
 }
